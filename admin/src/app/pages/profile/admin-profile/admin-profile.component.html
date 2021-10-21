@@ -1,0 +1,111 @@
+<!-- Sub Header Section -->
+<section class="sub-header">
+	<div class="container" >
+		<div class="row">
+			<div class="col-lg-10">
+				<div class="company-info">
+					<div class="media">
+						<div class="media-head" *ngIf="companyProfileInfo?.photo !='default.png'">
+							<img (error)="updateUrl($event)" src="companyProfileInfo?.photo" [src]="companyProfileInfo?.photo ? (companyProfileInfo?.meta?.photo?.path+'/'+ companyProfileInfo?.meta?.photo?.folder+'/'+companyProfileInfo?.meta?.photo?.sizes?.medium+'/'+companyProfileInfo?.photo)+'?v='+ randomNum: 'assets/img/user-avatar-01.png'">
+						</div>
+						<div style="padding: 30px;" class="media-head" *ngIf="companyProfileInfo?.photo =='default.png'">
+						</div>
+						<div class="media-body">
+							<h5 class="mt-0">{{companyProfileInfo?.name ? companyProfileInfo?.name : ''}}</h5>
+							<h6 class="text-capitalize">
+								{{companyProfileInfo?.city ? companyProfileInfo?.city : ''}}
+								{{companyProfileInfo?.state ? ', ' + companyProfileInfo?.state : ''}}
+								<span class="text-uppercase">
+									{{companyProfileInfo?.country ? ', ' + companyProfileInfo?.country : ''}}
+								</span>
+							</h6>
+							<h6>
+								{{companyProfileInfo?.website}}
+							</h6>
+							<h4 *ngIf="companyProfileInfo?.social_media_link?.length">
+								<a class="mr-1" *ngFor="let item of companyProfileInfo?.social_media_link" href="{{item.url}}" target="_blank">
+									<ng-container [ngSwitch]="item?.media">
+										<ng-container *ngSwitchCase="'youtube'">
+										  <i class="fab fa-youtube-square"></i>
+										</ng-container>
+										<ng-container *ngSwitchCase="'portfolio'">
+										  <i class="fas fa-laptop-code"></i>
+										</ng-container>
+										<ng-container *ngSwitchCase="'blog'">
+										  <i class="fas fa-blog"></i>
+										</ng-container>
+										<ng-container *ngSwitchDefault>
+										  <i class="fab fa-{{item.media}}"></i>
+										</ng-container>
+									</ng-container>
+								</a>
+							</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="company-folw">
+					<button [routerLink]="[ '/profile-edit']" class="btn btn-outline-warning btn-block"><i class="fas fa-pencil-alt"></i> Edit</button> <br>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+  <!-- //Sub Header Section -->
+
+<section class="my-5">
+	<div class="container">
+		<div class="row">
+			<!--Tab Section-->
+			<div class="col-lg-8 col-md-12 company-info-tab">
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+					<li class="nav-item" role="presentation">
+						<a class="nav-link active" id="company-tab" data-toggle="tab" role="tab" aria-controls="company" aria-selected="true">About</a>
+					</li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+					<!--About Company-->
+					<div class="tab-pane fade show active" id="company" role="tabpanel" >
+						<h6>Description</h6>
+						<ng-container *ngIf="companyProfileInfo?.description; else elseDesTemplate">
+							<div style="word-break: break-all;" [innerHTML]="companyProfileInfo?.description">
+							</div>
+						</ng-container>
+						<ng-template #elseDesTemplate>
+							No description was found
+						</ng-template>
+					</div>          
+				</div>
+			</div>
+
+			<!--Side Section-->
+			<div class="col-lg-4">
+				<div class="title">
+					<h2>Contact Us</h2>
+				</div>
+				<div class="sidebar-widget text-left bg-white">
+					<div class="row  mb-3">
+						<div class="col">
+							<p class="mb-0">Email Address</p>
+							<h5>{{companyProfileInfo?.email ? companyProfileInfo?.email : companyProfileInfo?.email ? companyProfileInfo?.email : '--'}}</h5>
+						</div>
+					</div>
+					<div class="row  mb-3">
+						<div class="col">
+							<p class="mb-0">Phone Number</p>
+							<ng-container *ngIf="companyProfileInfo?.contact; else elsePhoneTemplate">
+								<h5 *ngFor="let item of companyProfileInfo?.contact; let i=index">
+									{{item ? (item ) : ''}}
+								</h5>
+							</ng-container>
+							<ng-template #elsePhoneTemplate>
+								--
+							</ng-template>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

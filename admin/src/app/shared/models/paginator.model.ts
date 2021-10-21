@@ -9,7 +9,7 @@ export interface IPaginatorState {
 
 export class PaginatorState implements IPaginatorState {
   page = 1;
-  pageSize = PageSizes[4];
+  pageSize = PageSizes[0];
   total = 0;
   pageSizes: number[] = [];
 

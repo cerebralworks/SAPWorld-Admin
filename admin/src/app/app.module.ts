@@ -1,4 +1,4 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule, APP_INITIALIZER,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +20,8 @@ import { SplashScreenModule } from '@partials/layout/splash-screen/splash-screen
 import { AccountService } from '@data/service/account.service';
 import { SharedModule } from '@shared/shared.module';
 // #fake-end#
+import { DataTablesModule } from "angular-datatables";
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 function appInitializer(authService: AuthService) {
   return () => {
@@ -40,6 +42,7 @@ function appInitializer(authService: AuthService) {
     HttpClientModule,
     SharedModule,
     HighlightModule,
+    DataTablesModule,
     ClipboardModule,
     // #fake-start#
     environment.isMockEnabled
@@ -50,8 +53,15 @@ function appInitializer(authService: AuthService) {
       : [],
     // #fake-end#
     AppRoutingModule,
+    NgxUiLoaderModule, // import NgxUiLoaderModule
     InlineSVGModule.forRoot(),
     NgbModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground: true,
+      exclude: [
+        environment.serverUrl + "/api/isLoggedIn",
+      ],
+    })
   ],
   providers: [
     {
@@ -75,5 +85,6 @@ function appInitializer(authService: AuthService) {
     AccountService
   ],
   bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

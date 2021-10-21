@@ -18,7 +18,48 @@ export class EmployerService extends CacheService {
   constructor(private apiService: ApiService) {
     super();
   }
+	
+	//collecting Technical Skill data
+  getTechskill = (params: any): Observable<GetResponse> => {
+    return this.apiService.get('/api/program/list',params).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
+  //creating the Technical skill data
+  postTechskill =(data : any): Observable<any> => {
+    return this.apiService.post('/api/program/create', data).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
+  //deleting the Technical skil data
+  deleteTechskill = (params: any): Observable<any> => {
+    return this.apiService.delete('/api/program/delete/'+ params).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
+  //update Technical skill Data
+  updateTechskill = (id: any , data : any): Observable<any> => {
+    return this.apiService.post('/api/program/update/'+id, data).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
 
+
+	profile = (params?) => {
+    return this.apiService.get('/api/admins/profile', params).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  }
   jobUpdate = (jobInfo: JobPosting): Observable<JobPosting> => {
     return this.apiService.post('/api/jobpostings/update', jobInfo).pipe(
       map(data => {
@@ -42,6 +83,20 @@ export class EmployerService extends CacheService {
       })
     );
   };
+  getEmployersDetails = (params: any): Observable<GetResponse> => {
+    return this.apiService.post('/api/admin/dashboard/details', params).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
+  getEmployersCount = (): Observable<GetResponse> => {
+    return this.apiService.get('/api/admin/dashboard').pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
 
   getIndustries = (params: any): Observable<GetResponse> => {
     return this.apiService.get('/api/industries/list', params).pipe(
@@ -58,14 +113,6 @@ export class EmployerService extends CacheService {
       })
     );
   };
-
-  profile = (params?) => {
-    return this.apiService.get('/api/employers/profile', params).pipe(
-      map(data => {
-        return data;
-      })
-    );
-  }
 
   profileView = (params?) => {
     return this.apiService.get('/api/employers/view', params).pipe(
@@ -140,7 +187,7 @@ export class EmployerService extends CacheService {
   };
 
   updateCompanyProfile = (params) => {
-    return this.apiService.post('/api/employers/update-company-profile', params).pipe(
+    return this.apiService.post('/api/admins/create', params).pipe(
       map(data => {
         return data;
       })
@@ -148,7 +195,7 @@ export class EmployerService extends CacheService {
   };
 
   getCompanyProfileInfo = (params: any): Observable<GetResponse> => {
-    return this.apiService.get('/api/employers/company-profile', params).pipe(
+    return this.apiService.get('/api/admins/profile', params).pipe(
       map(data => {
         return data;
       })
@@ -156,7 +203,7 @@ export class EmployerService extends CacheService {
   };
 
   photoUpdate = (params?) => {
-    return this.apiService.post('/api/employers/update-photo', params).pipe(
+    return this.apiService.post('/api/admins/update-photo', params).pipe(
       map(data => {
         return data;
       })
@@ -187,4 +234,90 @@ export class EmployerService extends CacheService {
     );
   }
 
+  //Get country
+  getCountry = (): Observable<GetResponse> => {
+    return this.apiService.get('/api/country/list?limit=1000').pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
+  //collecting workautherization data
+  getWorkauth = (params: any): Observable<GetResponse> => {
+    return this.apiService.get('/api/workauthorization/list',params).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
+  //deleting the workautherization data
+  deleteWrkauth = (params: any): Observable<any> => {
+    return this.apiService.delete('/api/workauthorization/delete/'+ params).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
+  //posting the workautherization data
+  postWorkauth =(data : any): Observable<any> => {
+    return this.apiService.post('/api/workauthorization/create', data).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
+  //update  workautherization Data
+  updateWrkauth = (id: any , data : any): Observable<any> => {
+    return this.apiService.post('/api/workauthorization/update/'+id, data).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
+  //creating the industry data
+  postIndustries =(data : any): Observable<any> => {
+    return this.apiService.post('/api/industries/create', data).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
+  //deleting the Industry data
+  deleteIndustry = (params: any): Observable<any> => {
+    return this.apiService.delete('/api/industries/delete/'+ params).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
+  //update Industry Data
+  updateIndustry = (id: any , data : any): Observable<any> => {
+    return this.apiService.post('/api/industries/update/'+id, data).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
+  
+  
+  //creating the skills
+  createSkills(data : any){
+    return this.apiService.post('/api/skill-tags/creates',data)
+  }
+  //deleting the skills
+  deleteskill = (params: any): Observable<any> => {
+    return this.apiService.delete('/api/skill-tags/delete/'+ params).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
+  //update skills
+  updateskill = (id: any , data : any): Observable<any> => {
+    return this.apiService.post('/api/skill-tags/update/'+id, data).pipe(
+      map(data => {
+        return data;
+      })
+    );
+  };
 }
