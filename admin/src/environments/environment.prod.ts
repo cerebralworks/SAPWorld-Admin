@@ -19,7 +19,7 @@ export const environment = {
   envName: 'PROD',
   API_URL: 'assets/api',
   clientUrl: `${baseUrl}`,
-  adminUrl: 'http://184.72.227.41',
+  adminUrl: 'http://172.26.14.21',
   appVersion: 'v717demo1',
   USERDATA_KEY: 'authf649fc9a5f55',
   isMockEnabled: true,
