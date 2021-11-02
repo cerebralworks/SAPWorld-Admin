@@ -39,7 +39,8 @@ export class ApiService {
     ).pipe(catchError(this.formatErrors));
   }
 
-  post(path: string, body: Object = {}, headers: HttpHeaders = new HttpHeaders( 'Access-Control-Allow-Origin':'*' )): Observable<any> {
+  post(path: string, body: Object = {}, headers: HttpHeaders = new HttpHeaders()): Observable<any> {
+	  headers = headers.set('Access-Control-Allow-Origin', `'*'`);
     return this.http.post(
       `${env.serverUrl}${path}`,
       body, ({ headers, withCredentials: true })
