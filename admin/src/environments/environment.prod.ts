@@ -14,12 +14,12 @@ console.log(baseUrl);
 
 export const environment = {
   production: true,
-  serverUrl: 'http://52.204.92.226:5000',
+  serverUrl: 'http://52.204.92.226:5002',
   subPath: '',
   envName: 'PROD',
   API_URL: 'assets/api',
   clientUrl: `${baseUrl}`,
-  adminUrl: 'http://172.26.14.21',
+  adminUrl: 'http://184.72.227.41',
   appVersion: 'v717demo1',
   USERDATA_KEY: 'authf649fc9a5f55',
   isMockEnabled: true,
