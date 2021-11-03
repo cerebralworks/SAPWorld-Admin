@@ -55,11 +55,19 @@ app.use(cookieParser("sapWorldRedisSession"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+var whitelist = ['http://184.72.227.41', 'http://52.204.92.226'];
 // Enabling CORS for all requests
 app.use(
   require("cors")({
     origin: function(origin, callback) {
-      callback(null, origin);
+      callback(null, true);
+	 
+	 /* if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    } */
+	
     },
     credentials: true,
   })
@@ -99,9 +107,9 @@ app.use(function(req, res, next) {
 var isProduction = NODE_ENV === "production";
 
 // Enable error handler for only development server.
-if (!isProduction) {
+//if (!isProduction) {
   app.use(errorHandler());
-}
+//}
 
 app.use((req, res, next) => {
   if (req.session && req.session.isLoggedIn) {
