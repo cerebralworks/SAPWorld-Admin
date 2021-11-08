@@ -14,12 +14,12 @@ console.log(baseUrl);
 
 export const environment = {
   production: true,
-  serverUrl: 'http://184.72.227.41:5002',
+  serverUrl: 'http://admin.sapworld.io:5002',
   subPath: '',
   envName: 'PROD',
   API_URL: 'assets/api',
   clientUrl: `${baseUrl}`,
-  adminUrl: 'http://184.72.227.41',
+  adminUrl: 'http://admin.sapworld.io',
   appVersion: 'v717demo1',
   USERDATA_KEY: 'authf649fc9a5f55',
   isMockEnabled: true,
