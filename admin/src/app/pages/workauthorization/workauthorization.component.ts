@@ -314,6 +314,10 @@ this.es.postWorkauth(arraryval).subscribe(data=>{
   this.addWA.reset();
   this.ref.detectChanges();
   this.rerender()
+  setTimeout(() => {
+  this.show = false;
+  this.ref.detectChanges()
+}, 1000);
 },error=>{
   this.err = error['error'].meesage;
 			//console.log(this.err)
