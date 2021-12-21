@@ -95,7 +95,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe(
         response => {
 			this.onGetProfileInfo();
-          if (response && response.isLoggedIn && response.role.includes(2)) {            
+          if (response && response.isLoggedIn) {            
             this.router.navigate([this.returnUrl]);
           } else {
             this.hasError = true;
