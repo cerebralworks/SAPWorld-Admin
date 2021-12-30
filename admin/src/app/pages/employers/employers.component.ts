@@ -89,10 +89,15 @@ export class EmployersComponent implements OnInit,OnDestroy {
 			   'targets': 4,
 			   'className': 'text-Capitalize',
 			   'render': function (data, type, full, meta){
-				   var year = new Date(data).getFullYear()
-				   var date = new Date(data).getDate()
-				   var month = new Date(data).toLocaleString('en-us', { month: "short" });
-				   return month+' '+date+', '+year; 
+				   if(data){
+					   var year = new Date(data).getFullYear()
+					   var date = new Date(data).getDate()
+					   var month = new Date(data).toLocaleString('en-us', { month: "short" });
+					   return month+' '+date+', '+year; 
+				   }else{
+					   var temp ='--';
+					   return temp;
+				   }
 				}
 			}],
 			columns: [
