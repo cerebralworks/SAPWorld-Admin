@@ -1,4 +1,4 @@
-import { Component, OnInit,ChangeDetectorRef,OnDestroy, ViewChild} from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef,OnDestroy, ViewChild, HostListener} from '@angular/core';
 import { EmployerService } from '@data/service/employer.service';
 import {Subject} from 'rxjs';
 import {DataTableDirective} from 'angular-datatables';
@@ -696,4 +696,8 @@ export class DashboardComponent implements OnInit,OnDestroy  {
 		this.paramsEmployee['search'] =searchValue;
 		this.rerender();
 	}
+	@HostListener('window:popstate', ['$event'])
+  onPopState(event) {
+	 window.history.forward();
+	 }
 }
