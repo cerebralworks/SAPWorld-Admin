@@ -246,7 +246,7 @@ export class DashboardComponent implements OnInit,OnDestroy  {
 		}	else{
 			this.dtOptions = {
 				pageLength: this.limit,
-				processing: true,
+				processing: false,
 				"searching": false,
 				"info": false,
 				serverSide: true,
