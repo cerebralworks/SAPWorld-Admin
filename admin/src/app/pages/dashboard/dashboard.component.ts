@@ -176,7 +176,7 @@ export class DashboardComponent implements OnInit,OnDestroy  {
 		if(this.ShowJobTotal ==true || this.ShowJobAcive == true || this.ShowJobInActive == true){
 			this.dtOptions = {
 				pageLength: this.limit,
-				processing: true,
+				processing: false,
 				"searching": false,
 				"info": false,
 				serverSide: true,

@@ -48,7 +48,7 @@ export class EmployersComponent implements OnInit,OnDestroy {
 		this.paramsEmployee['view'] ='all';
 		this.dtOptionss = {
 			pageLength: this.limit,
-			processing: true,
+			processing: false,
 			"searching": false,
 			"info": false,
 			serverSide: true,

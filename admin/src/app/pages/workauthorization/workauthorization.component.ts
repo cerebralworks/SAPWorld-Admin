@@ -70,7 +70,7 @@ dtElement:  DataTableDirective;
 		this.requestParams.status = 1;
     this.dtOption = {
         "searching": false,
-        processing : true,
+        processing : false,
 				"info": false,
 				serverSide: true,
 				deferRender: true,

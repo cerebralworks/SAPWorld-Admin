@@ -197,6 +197,7 @@ a:hover {
     padding: .5rem 0.75rem;
     font-weight: 600;
     color: #4f5769;
+	cursor:pointer;
 }
 
 .dropdown-menu-right .dropdown-item:hover {
@@ -792,5 +793,6 @@ div.dataTables_wrapper div.dataTables_filter input {
     background: #f9fbff;
     font-size: .85rem;
 }
+
 /*--//Form Styles--*/
 
