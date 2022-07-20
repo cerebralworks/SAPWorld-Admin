@@ -20,6 +20,7 @@
 			 "optimization": false,
             "outputPath": "dist",
             "showCircularDependencies": false,
+			"preserveSymlinks": true,
             "allowedCommonJsDependencies": [
               "object-path",
               "apexcharts",
