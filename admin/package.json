@@ -87,6 +87,7 @@
     "webpack-messages": "^2.0.4",
     "webpack-rtl-plugin": "^2.0.0"
   }
+
 }
 
 
