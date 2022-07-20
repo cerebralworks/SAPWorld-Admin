@@ -14,7 +14,7 @@ console.log(baseUrl);
 
 export const environment = {
   production: true,
-  serverUrl: `${baseUrl}:5002`,
+  serverUrl: `${baseUrl}:5003`,
   subPath: '',
   envName: 'PROD',
   API_URL: 'assets/api',
