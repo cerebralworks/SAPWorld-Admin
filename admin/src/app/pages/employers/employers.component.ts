@@ -216,9 +216,9 @@ export class EmployersComponent implements OnInit,OnDestroy {
    
 	/**To close the model**/
 	closemodel(){
-	    this.registerForm.reset();
+	    this.mbRef.close();
 		this.openregister=false;
-		this.mbRef.close();
+		this.registerForm.reset();	
 	}
 	
 	/**To submit the register */
