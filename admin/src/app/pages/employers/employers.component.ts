@@ -185,7 +185,7 @@ export class EmployersComponent implements OnInit,OnDestroy {
 		  company: ['',Validators.required],
 		  first_name: ['',Validators.required],
 		  last_name: ['',Validators.required],
-		  email: ['',[Validators.required,ValidationService.emailValidator]],
+		  email: ['',[Validators.required,ValidationService.emailValidator,ValidationService.noFreeEmail]],
 		  phone: ['']
 		});
 	  }
@@ -216,8 +216,8 @@ export class EmployersComponent implements OnInit,OnDestroy {
    
 	/**To close the model**/
 	closemodel(){
+	    this.registerForm.reset();
 		this.openregister=false;
-		this.registerForm.reset();
 		this.mbRef.close();
 	}
 	
