@@ -22,6 +22,8 @@ module.exports = (app, env, rp) => {
 		responseData.role = req.session.role
 			? req.session.role
 			: [];
+		responseData.CALENDLY_TOKEN = env.CALENDLY_TOKEN;
+		responseData.ORGANIZATION_ID = env.ORGANIZATION_ID;
 		responseData.accessToken = req.session.user && req.session.user.access_token;
 		res.json(responseData);
 	});
@@ -48,6 +50,7 @@ module.exports = (app, env, rp) => {
 		rp(options)
 		.then(function(parsedBody) {
 			if(requestBody.roles == parsedBody.types[0]){
+			
 			let responseBody = { ...parsedBody };
 			let responseBodys = { ...parsedBody };
 			req.session.isLoggedIn = true;
@@ -65,8 +68,12 @@ module.exports = (app, env, rp) => {
 			  ? req.session.isLoggedIn
 			  : false;
 			responseBody.role = parsedBody.types;
-			responseBody.message = "Login Successfull";
-			res.status(200).json(responseBody);
+			if(parsedBody.status ===2){
+			   res.status(200).json({set_password:true,userId:parsedBody.userId});
+			}else{
+			   responseBody.message = "Login Successfull";
+			   res.status(200).json(responseBody);  
+			}
 			}else{
 			res.status(500).json({message:"Invalid login"});
 			}
@@ -75,7 +82,7 @@ module.exports = (app, env, rp) => {
 			res.status(500).json(err);
 		});
 	});
-	
+
 	/**
 	* Employer's signup.
 	*/
@@ -95,7 +102,7 @@ module.exports = (app, env, rp) => {
 		.then(function (parsedBody) {
 			let responseData = { ...parsedBody }
 			responseData.success = true;
-			responseData.message = "Emplyer signup successfully. We shot you an email with a link for verify your account password. Check your inbox."
+			responseData.message = "Great, Please check your registered email to confirm."
 			res.status(200).json(responseData);
 		})
 		.catch(function (err) {
@@ -123,6 +130,33 @@ module.exports = (app, env, rp) => {
 			let responseData = { ...parsedBody }
 			responseData.success = true;
 			responseData.message = "User signup successfully. We shot you an email with a link for verify your account password. Check your inbox."
+			res.status(200).json(responseData);
+		})
+		.catch(function (err) {
+			res.status(500).json(err)
+		})
+	})
+	
+	/**
+	* User's account delete.
+	*/
+	
+	app.post('/api/users/delete-account', (req, res) => {
+		var options = {
+			method: 'POST',
+			uri: `${serverRoutes.userDelete}`,
+			json: true,
+			body: req.body,
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
+			}
+		}
+		rp(options)
+		.then(function (parsedBody) {
+			
+			let responseData = { ...parsedBody }
+			responseData.success = true;
 			res.status(200).json(responseData);
 		})
 		.catch(function (err) {

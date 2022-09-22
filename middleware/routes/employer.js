@@ -3,7 +3,69 @@ module.exports = (app, env, rp) => {
 	const serverRoutes = require("../utils/serverRoutes");
 	const IncomingForm = require("formidable").IncomingForm;
 	const fs = require("fs");
-  
+	
+	/**
+	* Contact form  Posting
+	*/
+	
+	app.post("/api/contact/create", (req, res) => {
+		let requestBody = { ...req.body };    
+		requestCustom.custompost(`${serverRoutes.contactCreate}`, req, res, requestBody);
+	});
+	
+	/**
+	* upload country table
+	*/
+	
+	app.post("/api/country/upload", (req, res) => {
+		let requestBody = { ...req.body };    
+		requestCustom.custompost(`${serverRoutes.uploadcountry}`, req, res, requestBody);
+	});
+	
+	/**
+	* upload language table
+	*/
+	
+	app.post("/api/language/upload", (req, res) => {
+		let requestBody = { ...req.body };    
+		requestCustom.custompost(`${serverRoutes.uploadLanguage}`, req, res, requestBody);
+	});
+	
+	/**
+	* upload program table
+	*/
+	
+	app.post("/api/program/upload", (req, res) => {
+		let requestBody = { ...req.body };    
+		requestCustom.custompost(`${serverRoutes.uploadProgram}`, req, res, requestBody);
+	});
+	
+	/**
+	* upload skilltag table
+	*/
+	
+	app.post("/api/skill-tags/upload", (req, res) => {
+		let requestBody = { ...req.body };    
+		requestCustom.custompost(`${serverRoutes.uploadSkills}`, req, res, requestBody);
+	});
+	
+		/**
+	* upload industry table
+	*/
+	
+	app.post("/api/industries/upload", (req, res) => {
+		let requestBody = { ...req.body };    
+		requestCustom.custompost(`${serverRoutes.uploadIndustry}`, req, res, requestBody);
+	});
+	/**
+	* upload scoremaster table
+	*/
+	
+	app.post("/api/scoremaster/upload", (req, res) => {
+		let requestBody = { ...req.body };    
+		requestCustom.custompost(`${serverRoutes.uploadScoree}`, req, res, requestBody);
+	});
+	
 	/**
 	* Admin Dashboard details GET
 	*/
@@ -38,6 +100,42 @@ module.exports = (app, env, rp) => {
 	app.post("/api/admins/profile-complete-invite", (req, res) => {
 		let requestBody = { ...req.body };    
 		requestCustom.post(`${serverRoutes.adminsUserMail}`, req, res, requestBody);
+	});
+	
+	/**
+	* Admin Profile -send mail to employer for profile complete
+	*/
+	
+	app.post("/api/admins/employer-complete-invite", (req, res) => {
+		let requestBody = { ...req.body };    
+		requestCustom.post(`${serverRoutes.adminsEmployerMail}`, req, res, requestBody);
+	});
+	
+	/**
+	* Admin add employer
+	*/
+	
+	app.post("/api/admins/create-employer", (req, res) => {
+		let requestBody = { ...req.body };    
+		requestCustom.post(`${serverRoutes.adminsEmployerCreate}`, req, res, requestBody);
+	});
+	
+	/**
+	* verify otp
+	*/
+	
+	app.post("/api/accounts/verify-otp", (req, res) => {
+		let requestBody = { ...req.body };    
+		requestCustom.post(`${serverRoutes.accountVerifyOtp}`, req, res, requestBody);
+	});
+	
+	/**
+	* send otp
+	*/
+	
+	app.post("/api/accounts/send-otp", (req, res) => {
+		let requestBody = { ...req.body };    
+		requestCustom.post(`${serverRoutes.accountSendOtp}`, req, res, requestBody);
 	});
 	
 	/**
