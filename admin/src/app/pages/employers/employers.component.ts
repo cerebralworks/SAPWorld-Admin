@@ -116,6 +116,16 @@ export class EmployersComponent implements OnInit,OnDestroy {
 				   }
 				}
 			},{
+			   'targets': 4,
+                'className': 'text-Capitalize',
+			   'render': function (data, type, full, meta){
+			       if(parseInt(data)==0){
+				   return '<a style="cursor:no-drop">'+data+'</a>';
+				   }else{
+				   return '<a href="'+`${env.subPath}`+'/#/posted-job/'+full.id+'">'+data+'</a>';
+				   }
+				}
+			},{
 			   'targets': 5,
 			   'className': 'text-Capitalize',
 			   'render': function (data, type, full, meta){
@@ -185,7 +195,7 @@ export class EmployersComponent implements OnInit,OnDestroy {
 		  company: ['',Validators.required],
 		  first_name: ['',Validators.required],
 		  last_name: ['',Validators.required],
-		  email: ['',[Validators.required,ValidationService.emailValidator,ValidationService.noFreeEmail]],
+		  email: ['',[Validators.required,ValidationService.emailValidator]],
 		  phone: ['']
 		});
 	  }
@@ -218,7 +228,8 @@ export class EmployersComponent implements OnInit,OnDestroy {
 	closemodel(){
 	    this.mbRef.close();
 		this.openregister=false;
-		this.registerForm.reset();	
+		this.registerForm.reset();
+		
 	}
 	
 	/**To submit the register */

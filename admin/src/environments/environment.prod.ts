@@ -22,6 +22,7 @@ export const environment = {
   clientUrl: `${baseUrl}`,
   adminUrl: `${baseUrl}`,
   apiPath: 'https://api.sapworld.io:5003',
+  app_url:'https://sapworld.io/',
   appVersion: 'v717demo1',
   USERDATA_KEY: 'authf649fc9a5f55',
   isMockEnabled: true,
