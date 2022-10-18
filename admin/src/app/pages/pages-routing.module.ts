@@ -55,6 +55,15 @@ const routes: Routes = [
         path: 'posted-job/:id',
         loadChildren: () =>
           import('./posted-job/posted-job.module').then((m) => m.PostedJobModule),
+      },{
+        path: 'account-setting',
+        loadChildren: () =>
+          import('./profile/admin-setting/admin-setting.module').then((m) => m.AdminSettingModule),
+      },
+	{
+        path: 'jobseeker-view/:id',
+        loadChildren: () =>
+          import('./jobseeker-view/jobseeker-view.module').then((m) => m.JobseekerViewModule),
       },
 	  
       {
