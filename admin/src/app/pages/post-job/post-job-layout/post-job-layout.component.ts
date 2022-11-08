@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { tabInfo } from '@data/schema/create-candidate';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { environment as env } from '@env';
@@ -10,7 +9,6 @@ import { environment as env } from '@env';
 })
 export class PostJobLayoutComponent implements OnInit {
 
-  public currentTabInfo: tabInfo = {tabNumber: 1, tabName: 'Job Information'};
   public urlFrame :any;
   urlSafe: SafeResourceUrl;
   constructor(private router:Router,private sanitizer: DomSanitizer) { }
@@ -20,12 +18,7 @@ export class PostJobLayoutComponent implements OnInit {
 	  this.urlFrame=this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
-  /**
-	**	On header change in the post-job
-	**/
-	
-	onHeaderTabChange = (currentTabInfo: tabInfo) => {
-		this.currentTabInfo = { ...currentTabInfo};
-	}
-  
+  goBack(){
+    this.router.navigate(['/employers']);
+  }
 }
