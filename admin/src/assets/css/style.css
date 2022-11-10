@@ -885,7 +885,7 @@ div.dataTables_wrapper div.dataTables_filter input {
 }
 @media (min-width: 1200px) and (max-width: 1300px) {
   .tablescreens{
-	   width:90% !important;
+	   width:85% !important;
 	  
   }
   body {
