@@ -17,6 +17,8 @@ export const environment = {
   clientUrl: `${baseUrl}:${port}`,
   appVersion: 'v717demo1',
   USERDATA_KEY: 'authf649fc9a5f55',
+  apiPath: 'https://api.sapworld.io:5003',
+  app_url:'https://sapworld.io/',
   isMockEnabled: true,
   apiUrl: 'api'
 };

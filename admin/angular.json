@@ -19,7 +19,6 @@
           "options": {
 			 "optimization": false,
             "outputPath": "dist",
-            "showCircularDependencies": false,
 			"preserveSymlinks": true,
             "allowedCommonJsDependencies": [
               "object-path",
@@ -165,7 +164,6 @@
       }
     }
   },
-  "defaultProject": "demo1-app",
   "cli": {
     "analytics": false
   }

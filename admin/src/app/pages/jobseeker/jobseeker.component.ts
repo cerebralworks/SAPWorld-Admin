@@ -5,7 +5,7 @@ import {DataTableDirective} from 'angular-datatables';
 import { environment as env } from '@env';
 import { HttpHeaders, HttpClient,HttpResponse, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 class DataTablesResponse {
   data: any[];
   draw: number;
@@ -37,13 +37,13 @@ export class JobSeekerComponent implements OnInit {
 	public openmail:boolean =false;
 	public mbRef: NgbModalRef;
 	public userId:any;
-	public emailform : FormGroup;
+	public emailform : UntypedFormGroup;
 	constructor(
 		private employerService: EmployerService,
 		private ref: ChangeDetectorRef,
 		private http: HttpClient,
 		private modelService: NgbModal,
-		private formBuilder: FormBuilder,
+		private formBuilder: UntypedFormBuilder,
 	) { }
  
 	ngOnInit(): void {

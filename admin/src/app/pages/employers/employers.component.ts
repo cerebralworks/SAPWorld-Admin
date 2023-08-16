@@ -5,7 +5,7 @@ import {DataTableDirective} from 'angular-datatables';
 import { environment as env } from '@env';
 import { HttpHeaders, HttpClient,HttpResponse, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ValidationService } from '@shared/services/validation.service';
 import { AccountService } from '@data/service/account.service';
 class DataTablesResponse {
@@ -38,11 +38,11 @@ export class EmployersComponent implements OnInit,OnDestroy {
 	@ViewChild('registerModal', { static: false }) registerModal: TemplateRef<any>;
 	public openregister:boolean =false;
 	public mbRef: NgbModalRef;
-	public registerForm : FormGroup;
+	public registerForm : UntypedFormGroup;
 	@ViewChild('emailModal', { static: false }) emailModal: TemplateRef<any>;
 	public openmail:boolean =false;
 	public mbRefs: NgbModalRef;
-	public emailform : FormGroup;
+	public emailform : UntypedFormGroup;
 	public userId:any;
 	formError: any[] = [];
 	constructor(
@@ -50,7 +50,7 @@ export class EmployersComponent implements OnInit,OnDestroy {
 		private ref: ChangeDetectorRef,
 		private http: HttpClient,
 		private modelService: NgbModal,
-		private formBuilder: FormBuilder,
+		private formBuilder: UntypedFormBuilder,
 		private accountService:AccountService
 		
 	) { }
