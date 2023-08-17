@@ -19,7 +19,7 @@ class DataTablesResponse {
 })
 export class JobSeekerComponent implements OnInit {
     
-	SlideOptions = { items: 5, dots: false, nav: true };  
+	slideOptions = { items: 5, dots: false, nav: true };  
 	CarouselOptions = { dots: false, nav: true }; 
 	@ViewChild(DataTableDirective, {static: false})
     dtElement:  DataTableDirective;	

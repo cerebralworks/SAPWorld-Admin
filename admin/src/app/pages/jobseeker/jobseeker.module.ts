@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { JobSeekerComponent } from './jobseeker.component';
-import { OwlModule } from 'ngx-owl-carousel';  
 import { DataTablesModule } from "angular-datatables";
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '@shared/shared.module';
 @NgModule({
   declarations: [JobSeekerComponent],
   imports: [
-    CommonModule,OwlModule,DataTablesModule,ReactiveFormsModule,FormsModule,
+    CommonModule,DataTablesModule,ReactiveFormsModule,FormsModule,SharedModule,
     RouterModule.forChild([
       {
         path: '',
@@ -17,5 +17,6 @@ import { FormsModule } from '@angular/forms';
       },
     ])
   ],
+  //schemas: [ CUSTOM_ELEMENTS_SCHEMA]
 })
 export class JobSeekerModule {}

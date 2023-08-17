@@ -22,7 +22,7 @@ class DataTablesResponse {
 })
 export class EmployersComponent implements OnInit,OnDestroy {
 	
-	SlideOptions = { items: 5, dots: false, nav: true };  
+	slideOptions = { items: 5, dots: false, nav: true };  
 	CarouselOptions = { dots: false, nav: true }; 
 
 	dtOptionss: DataTables.Settings = {};

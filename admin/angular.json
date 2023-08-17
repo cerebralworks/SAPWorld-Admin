@@ -25,7 +25,7 @@
               "apexcharts",
               "clipboard.js",
               "highlight.js",
-			  "ngx-owl-carousel",
+			  "ngx-owl-carousel-o",
 			  "ngx-google-places-autocomplete"
             ],
             "index": "src/index.html",
@@ -43,8 +43,8 @@
               "src/assets/css/owl.carousel.min.css",
               "src/assets/css/owl.theme.default.min.css",
               "src/assets/css/resp-style.css",       
-			  "./node_modules/owl.carousel/dist/assets/owl.carousel.min.css",  
-              "./node_modules/owl.carousel/dist/assets/owl.theme.default.min.css" ,
+			  "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+				"node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
               "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css"
             ],
             "scripts": [
