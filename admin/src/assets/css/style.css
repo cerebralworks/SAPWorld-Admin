@@ -209,6 +209,7 @@ a:hover {
 .dropdown-toggle::after{
 	display:none;
 }
+
 .dropdown-menu-animated {
     -webkit-animation-name: DropDownSlide;
     animation-name: DropDownSlide;
@@ -647,6 +648,9 @@ text-transform: capitalize !important;
 }
 .dataTables_paginate {
     padding-right: 15px;
+}
+.modal-backdrop.show {
+  z-index: 100 !important;
 }
 .page-item.active .page-link {
     z-index: 3;
