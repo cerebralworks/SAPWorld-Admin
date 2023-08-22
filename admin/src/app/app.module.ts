@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthService } from './modules/auth/_services/auth.service';
 import { environment } from 'src/environments/environment';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 // Highlight JS
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 // import { SplashScreenModule } from './_metronic/partials/layout/splash-screen/splash-screen.module';
@@ -22,6 +23,7 @@ import { SharedModule } from '@shared/shared.module';
 // #fake-end#
 import { DataTablesModule } from "angular-datatables";
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { NgxGpAutocompleteModule } from "@angular-magic/ngx-gp-autocomplete";
 
 function appInitializer(authService: AuthService) {
   return () => {
@@ -46,9 +48,16 @@ function appInitializer(authService: AuthService) {
     ClipboardModule,
    
     AppRoutingModule,
+	NgxGpAutocompleteModule.forRoot({ 
+      loaderOptions: { 
+            apiKey: 'AIzaSyAlNbHgwIyn7mVCKpkdie_uu8_a87A1fvc',
+            libraries: ['places']
+      } 
+    }),
     NgxUiLoaderModule, // import NgxUiLoaderModule
     InlineSVGModule.forRoot(),
     NgbModule,
+	TooltipModule.forRoot(),
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true,
       exclude: [

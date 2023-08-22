@@ -21,8 +21,8 @@ class DataTablesResponse {
   styleUrls: ['./employers.component.scss']
 })
 export class EmployersComponent implements OnInit,OnDestroy {
-	
-	slideOptions = { items: 5, dots: false, nav: true };  
+
+	slideOptions = { items: 5, dots: false, nav: true, navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'] };  
 	CarouselOptions = { dots: false, nav: true }; 
 
 	dtOptionss: DataTables.Settings = {};

@@ -18,8 +18,8 @@ class DataTablesResponse {
   styleUrls: ['./jobseeker.component.scss']
 })
 export class JobSeekerComponent implements OnInit {
-    
-	slideOptions = { items: 5, dots: false, nav: true };  
+	
+	slideOptions = { items: 5, dots: false, nav: true, navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'] };  
 	CarouselOptions = { dots: false, nav: true }; 
 	@ViewChild(DataTableDirective, {static: false})
     dtElement:  DataTableDirective;	

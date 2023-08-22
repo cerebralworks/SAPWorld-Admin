@@ -10,6 +10,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ControlMessagesComponent } from './components/control-messages/control-messages.component';
 import { CarouselModule  } from 'ngx-owl-carousel-o';  
+import { NgxGpAutocompleteModule } from "@angular-magic/ngx-gp-autocomplete";
 
 @NgModule({
 	declarations: [
@@ -25,6 +26,7 @@ import { CarouselModule  } from 'ngx-owl-carousel-o';
 		AngularEditorModule,
 		NgxIntlTelInputModule,	
 		InlineSVGModule,
+		NgxGpAutocompleteModule,
 		CarouselModule 
 	],
 	exports: [   
@@ -37,6 +39,7 @@ import { CarouselModule  } from 'ngx-owl-carousel-o';
 		NgxIntlTelInputModule,	
 		InlineSVGModule,
 		ControlMessagesComponent,
+		NgxGpAutocompleteModule,
 		CarouselModule 
 	],
 	providers: [

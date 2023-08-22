@@ -25,7 +25,6 @@
               "apexcharts",
               "clipboard.js",
               "highlight.js",
-			  "ngx-owl-carousel-o",
 			  "ngx-google-places-autocomplete"
             ],
             "index": "src/index.html",
@@ -39,6 +38,7 @@
             ],
             "styles": [
               "src/styles.scss",
+			  "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/assets/css/style.css",
               "src/assets/css/owl.carousel.min.css",
               "src/assets/css/owl.theme.default.min.css",
@@ -59,7 +59,6 @@
               "node_modules/clipboard/dist/clipboard.js",
               "node_modules/jquery/dist/jquery.js",
 			  "./node_modules/jquery/dist/jquery.min.js",  
-             "./node_modules/owl.carousel/dist/owl.carousel.min.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
               "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"
             ]
@@ -133,6 +132,7 @@
             ],
             "styles": [
 			  "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+			  "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss"
             ],
             "scripts": []
