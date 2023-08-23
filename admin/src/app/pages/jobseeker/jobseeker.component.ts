@@ -6,6 +6,7 @@ import { environment as env } from '@env';
 import { HttpHeaders, HttpClient,HttpResponse, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 class DataTablesResponse {
   data: any[];
   draw: number;
@@ -19,7 +20,7 @@ class DataTablesResponse {
 })
 export class JobSeekerComponent implements OnInit {
 	
-	slideOptions = { items: 5, dots: false, nav: true, navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'] };  
+	public slideOptions: OwlOptions= { items: 5, dots: false, nav: true, navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'] ,autoWidth:true};  
 	CarouselOptions = { dots: false, nav: true }; 
 	@ViewChild(DataTableDirective, {static: false})
     dtElement:  DataTableDirective;	
