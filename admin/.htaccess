@@ -1,8 +1,10 @@
 <IfModule mod_rewrite.c>
-   RewriteEngine On
-   RewriteBase /example/example/
-   RewriteRule ^index\.html$ - [L]
-   RewriteCond %{REQUEST_FILENAME} !-f
-   RewriteCond %{REQUEST_FILENAME} !-d
-   RewriteRule . index.html [L]
- </IfModule>
+  RewriteEngine On
+  RewriteBase /
+
+  # Handle requests to assets, like CSS and JavaScript files
+  RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|gif)$
+
+  # Handle all other requests by serving the Angular app's index.html file
+  RewriteRule ^ index.html [L]
+</IfModule>
