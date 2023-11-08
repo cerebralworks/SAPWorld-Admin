@@ -103,7 +103,7 @@ export class EmployersComponent implements OnInit,OnDestroy {
 			   'targets': 1,
 			   'className': 'text-Capitalize',
 			   'render': function (data, type, full, meta){
-				   return '<a class="text-primary" href="'+`${env.subPath}`+'/#/employers/view/'+full.id+'" >'+full.first_name+' '+ full.last_name +'</a>'
+				   return '<a class="text-primary" href="'+`${env.subPath}`+'/employers/view/'+full.id+'" >'+full.first_name+' '+ full.last_name +'</a>'
 				}
 			},{
 			   'targets': 2,
@@ -122,7 +122,7 @@ export class EmployersComponent implements OnInit,OnDestroy {
 			       if(parseInt(data)==0){
 				   return '<a style="cursor:no-drop">'+data+'</a>';
 				   }else{
-				   return '<a href="'+`${env.subPath}`+'/#/posted-job/'+full.id+'">'+data+'</a>';
+				   return '<a href="'+`${env.subPath}`+'/posted-job/'+full.id+'">'+data+'</a>';
 				   }
 				}
 			},{
@@ -144,8 +144,8 @@ export class EmployersComponent implements OnInit,OnDestroy {
 			    'orderable':false,
                 'className': 'text-Capitalize',
 			   'render': function (data, type, full, meta){
-				  /* return '<a href="http://localhost:4200/#/admin/post-job"><i style="color:#385edf" class="ri-draft-fill"></i></a>';*/
-				   return '<a href="'+`${env.subPath}`+'/#/post-job/'+full.id+'"><i style="color:#385edf" class="ri-draft-fill"></i></a>';
+				  /* return '<a href="http://localhost:4200/admin/post-job"><i style="color:#385edf" class="ri-draft-fill"></i></a>';*/
+				   return '<a href="'+`${env.subPath}`+'/post-job/'+full.id+'"><i style="color:#385edf" class="ri-draft-fill"></i></a>';
 				}
 			},{
 			   'targets': 7,
